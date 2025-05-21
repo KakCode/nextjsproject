@@ -1,4 +1,4 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+ 
 
 import {
   Accordion,
@@ -125,7 +125,7 @@ const Navbar = ({
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
+                  
                 </Button>
               </SheetTrigger>
               <SheetContent className="overflow-y-auto">
