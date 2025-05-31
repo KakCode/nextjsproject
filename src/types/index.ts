@@ -1,5 +1,11 @@
 import { Icons } from '@/components/icons';
 
+
+export interface AppNavItem {
+  section: string;
+  navItems: NavItem[]
+}
+
 export interface NavItem {
   title: string;
   url: string;

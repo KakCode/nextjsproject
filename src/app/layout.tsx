@@ -6,6 +6,7 @@ import ThemeProvider from '@/components/layout/ThemeToggle/theme-provider';
 import { ActiveThemeProvider } from "@/components/active-theme";
 import { cookies } from "next/headers";
 import { cn } from '@/lib/utils';
+import { Toaster } from "sonner";
 
 const META_THEME_COLORS = {
   light: '#ffffff',
@@ -56,7 +57,9 @@ export default async function RootLayout({
           enableSystem
           enableColorScheme
         >
-          <ActiveThemeProvider>{children}</ActiveThemeProvider>
+          <ActiveThemeProvider>{children}
+            <Toaster/>
+          </ActiveThemeProvider>
         </ThemeProvider>
       </body>
     </html>
