@@ -167,7 +167,7 @@ export default function AppSidebar() {
                     className='h-8 w-8 rounded-lg'
                     showInfo
                     user={{
-                      imageUrl: "/public/logo.png",
+                      // imageUrl: "/public/logo.png",
                       fullName: "Pearom",
                       emailAddresses: [
                         { emailAddress: "mobiliker123@gmail.com" }
@@ -189,7 +189,7 @@ export default function AppSidebar() {
                     className='h-8 w-8 rounded-lg'
                     showInfo
                     user={{
-                      imageUrl: "/public/logo.png",
+                      // imageUrl: "/public/logo.png",
                       fullName: "Pearom",
                       emailAddresses: [
                         { emailAddress: "mobiliker123@gmail.com" }

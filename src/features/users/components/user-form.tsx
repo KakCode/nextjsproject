@@ -51,13 +51,22 @@ import {
 import {
   Calendar as CalendarIcon
 } from "lucide-react"
+import {
+  PhoneInput
+} from "@/components/ui/phone-input";
+import {
+  PasswordInput
+} from "@/components/ui/password-input"
 
 const formSchema = z.object({
-  userId: z.string().min(1).min(2),
+  userID: z.string().min(1),
   username: z.string().min(1),
   gender: z.string(),
   dob: z.coerce.date(),
-  email: z.string().min(1)
+  email: z.string(),
+  phone: z.string(),
+  password: z.string(),
+  cpassword: z.string()
 });
 
 export default function MyForm() {
@@ -65,7 +74,14 @@ export default function MyForm() {
   const form = useForm < z.infer < typeof formSchema >> ({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      "dob": new Date()
+      userID: "",
+      username: "",
+      gender: "",
+      dob: new Date(),
+      email: "",
+      phone: "",
+      password: "",
+      cpassword: ""
     },
   })
 
@@ -93,13 +109,13 @@ export default function MyForm() {
             
         <FormField
           control={form.control}
-          name="userId"
+          name="userID"
           render={({ field }) => (
             <FormItem>
               <FormLabel>User ID</FormLabel>
               <FormControl>
                 <Input 
-                placeholder="Input your user ID"
+                placeholder=""
                 
                 type="text"
                 {...field} />
@@ -148,13 +164,13 @@ export default function MyForm() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select gender" />
+                    <SelectValue placeholder="Select Gender" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="femail">Femail</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="male">Male</SelectItem>
+                    <SelectItem value="female">Female</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
                 
@@ -209,6 +225,10 @@ export default function MyForm() {
           
         </div>
         
+        <div className="grid grid-cols-12 gap-4">
+          
+          <div className="col-span-6">
+            
         <FormField
           control={form.control}
           name="email"
@@ -219,7 +239,7 @@ export default function MyForm() {
                 <Input 
                 placeholder=""
                 
-                type="text"
+                type="email"
                 {...field} />
               </FormControl>
               
@@ -227,6 +247,74 @@ export default function MyForm() {
             </FormItem>
           )}
         />
+          </div>
+          
+          <div className="col-span-6">
+            
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem className="flex flex-col items-start">
+              <FormLabel>Phone number</FormLabel>
+                <FormControl className="w-full">
+                  <PhoneInput
+                    placeholder=""
+                    {...field}
+                    defaultCountry="KH"
+                  />
+                </FormControl>
+              
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+            
+          </div>
+          
+        </div>
+        
+        <div className="grid grid-cols-12 gap-4">
+          
+          <div className="col-span-6">
+            
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <PasswordInput placeholder="" {...field} />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+          </div>
+          
+          <div className="col-span-6">
+            
+        <FormField
+          control={form.control}
+          name="cpassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirm Password</FormLabel>
+              <FormControl>
+                <PasswordInput placeholder="" {...field} />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+          </div>
+          
+        </div>
         <Button type="submit">Submit</Button>
       </form>
     </Form>

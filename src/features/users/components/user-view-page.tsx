@@ -2,7 +2,7 @@ import UserForm from "./user-form";
 
 export default function UserViewPage({
     userId
-}: {userId: any}) {
+}: {userId: string}) {
     return (
         <UserForm/>
     )
