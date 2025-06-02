@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { IconPlus } from '@tabler/icons-react';
 import Link from 'next/link'; 
 import { Suspense } from 'react';
+import UserListPage from '@/features/users/components/user-list-page';
  
 export default  function Page() {
   // This key is used for invoke suspense if any of the search params changed (used for filters).
@@ -13,7 +14,7 @@ export default  function Page() {
 
   return (
     <PageContainer scrollable={false}>
-      <div className='flex flex-1 flex-col space-y-4'>
+      <div className="flex flex-1 flex-col space-y-4"> 
         <div className='flex items-start justify-between'>
           <Heading
             title='User'
@@ -27,8 +28,9 @@ export default  function Page() {
           </Link>
         </div>
         <Separator />
-      
+      <UserListPage/> 
       </div>
     </PageContainer>
+
   );
-}
+} 

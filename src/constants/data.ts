@@ -59,8 +59,20 @@ export const appNavItems: AppNavItem[] = [
             shortcut: ["u", "u"],
             url: "/dashboard/user",
             icon: "user",
-          },
+          } 
         ],
+      },
+    ],
+  },
+   {
+    section: "Invitation" ,
+    navItems: [
+      {
+        title: "Create Invite",
+        url: "/dashboard/creatinvite", // Placeholder as there is no direct link for the parent
+        icon: "send",
+        isActive: true,
+        items: [],
       },
     ],
   },

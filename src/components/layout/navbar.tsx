@@ -54,13 +54,13 @@ interface NavbarProps {
 
 const Navbar = ({
   logo = {
-    url: "/login",
+    url: "/",
     src: "/image/logo.png",
     alt: "logo",
-    title: "Lion",
+    title: "",
   },
   menu = [
-    { title: "Home",
+    { title: "Get Started",
        url: "/login", 
 
     },
